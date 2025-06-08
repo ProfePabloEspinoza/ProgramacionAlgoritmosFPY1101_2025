@@ -1,0 +1,65 @@
+# Ejercicio 1 Prueba 2, Claudio Morales Rojas 19.647.114-6
+
+Condiciones_academicas = float(input("Ingrese su promedio: "))
+Condiciones_Socioeconomicas = int(input("Ingrese el decil (1-10): "))
+
+Arancel = 2200000
+Matricula = 95000
+Descuento = 0
+Descuento_Matricula = 0
+
+if Condiciones_academicas > 6.5:
+    if Condiciones_Socioeconomicas == 1 or Condiciones_Socioeconomicas == 2:
+        Descuento = 0.25
+    elif Condiciones_Socioeconomicas == 3 or Condiciones_Socioeconomicas == 4:
+        Descuento = 0.18
+    elif 5.5 < Condiciones_academicas <= 6.5:
+        if Condiciones_Socioeconomicas  == 1 or Condiciones_Socioeconomicas == 2:
+            Descuento = 0.15
+        elif Condiciones_Socioeconomicas == 3 or Condiciones_Socioeconomicas == 4:
+            Descuento = 0.12
+if Condiciones_Socioeconomicas == 1 or Condiciones_Socioeconomicas == 2 or Condiciones_Socioeconomicas == 3:
+    Descuento_Matricula = 0.12
+    if Condiciones_academicas >= 6.0:
+     Descuento_Matricula += 0.05
+
+
+        
+Arancel_final = Arancel * (1 - Descuento)
+Matricula_final = Matricula * (1 - Descuento_Matricula)
+
+print(f"El valor del arancel es: ${int(Arancel_final)}.-")
+print(f"El valor de la matricula es: ${int(Descuento_Matricula)}.-")
+
+
+# Ejercicio 2, Prueba 2
+
+num1 = int(input("Ingrese límite inferior: "))
+num2 = int(input("Ingrese límite superior: "))
+
+if num1 >= num2:
+    print("Error: El límite inferior debe ser menor al superior.")
+else:
+    numero_objetivo = (num1 + num2) // 2 
+
+    intentos = 3
+    adivinado = False
+
+    for intento in range(1, intentos + 1):
+        print(f"\nIntento {intento}:")
+        guess = int(input("Adivina el número: "))
+
+        if guess == numero_objetivo:
+            print("¡Felicitaciones! Adivinaste.")
+            adivinado = True
+            break
+        else:
+            if guess < numero_objetivo:
+                print("El número es MAYOR.")
+            else:
+                print("El número es MENOR.")
+            if intento == 2:
+                print(f"(Pista: El número está entre {num1} y {num2})")
+
+    if not adivinado:
+        print(f"\n¡Perdiste! El número era: {numero_objetivo}")

@@ -1,0 +1,30 @@
+totalLiv = 0
+totalMed = 0
+totalPes = 0
+contLiv = 0
+contMed = 0
+contPes = 0
+print("Bienvenido a su programa de Transporte\n")
+cont = int(input("cuantos paquetes desea enviar: "))
+for i in range(0,cont,1):
+  paquete = int(input(f"Ingrese peso de paquete {i+1}: "))
+  if 0 <=paquete<=5:
+    totalLiv = totalLiv + 1000
+    contLiv = contLiv + 1
+  elif 6 <=paquete<=10:
+    totalMed = totalMed + 4500
+    contMed = contMed + 1
+  elif 11 <=paquete<=20:
+    totalPes = totalPes + 8000
+    contPes = contPes + 1
+  else :
+    print("Paquete no puede pesar mas de 20 kilos")
+    i = i-1
+  
+print("\n     Encomiendas     ")
+print("---------------------")
+print(f"{contLiv} bulto LIVIANO: ${totalLiv}")
+print(f"{contMed} bulto MEDIANO: ${totalMed}")
+print(f"{contPes} bulto PESADO : ${totalPes}")
+print("---------------------")
+print(f"     Total:      ${totalLiv+totalMed+totalPes}")

@@ -1,0 +1,12 @@
+{'coord': {'lon': 37.6156, 'lat': 55.7522
+    }, 'weather': [
+        {'id': 804, 'main': 'Clouds', 'description': 'nubes', 'icon': '04n'
+        }
+    ], 'base': 'stations', 'main': {'temp': 8.52, 'feels_like': 7.14, 'temp_min': 8.52, 'temp_max': 8.7, 'pressure': 1004, 'humidity': 61, 'sea_level': 1004, 'grnd_level': 985
+    }, 'visibility': 10000, 'wind': {'speed': 2.4, 'deg': 211, 'gust': 5.23
+    }, 'clouds': {'all': 99
+    }, 'dt': 1747250890, 'sys': {'type': 2, 'id': 2094500, 'country': 'RU', 'sunrise': 1747185592, 'sunset': 1747243923
+    }, 'timezone': 10800, 'id': 524901, 'name': 'Moscow', 'cod': 200
+}
+
+# Presiona Shift + Alt + F (en Windows) o Shift + Option + F (en macOS).

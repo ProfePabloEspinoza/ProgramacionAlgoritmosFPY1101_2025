@@ -1,0 +1,81 @@
+arancel = 2200000
+matricula = 95000
+descuento = 0.0
+desMatricula = 0.0
+precioArancel = 0
+precioMatricula = 0
+
+
+print("****PORTAL BENEFICIO****")
+print(" ")
+promedio = float(input("INGRESE SU PROMEDIO: "))
+decil = int(input("INGRESE EL DECIL (1 - 10): "))
+
+if promedio >= 6.5:
+
+    if decil == 1 or decil == 2:
+
+        descuento = 0.25
+
+    elif decil == 3 or decil == 4:
+
+        descuento = 0.18
+
+    else:
+        print("DECIL MUY ALTO NO APPLICA DESCUENTO")
+
+elif 5.5 < promedio <= 6.5:
+
+    if decil == 1 or decil == 2:
+
+        descuento = 0.15
+
+    elif decil == 3 or decil == 4:
+
+        descuento = 0.12
+
+    else:
+        print("DECIL MUY ALTO NO APPLICA DESCUENTO")
+
+elif promedio <= 5.4:
+
+    print("RENDIMIENTO ACDEMICO BAJO NO APLICA DESCUENTO")
+
+
+## CON ESTO VOY A CALCULAR EL PRECIO/DESCUENTO DE LA MATRICULA##
+if (decil == 1) or (decil == 2) or (decil == 3):
+
+    desMatricula = 0.12
+
+    if promedio >= 6.0:
+
+        desMatricula = desMatricula + 0.05
+
+precioArancel = arancel * (1 - descuento)
+
+print(f'EL VALOR DEL ARANCEL ES DE: ${int(precioArancel)}')
+
+precioMatricula = matricula * (1 - desMatricula)
+
+print(f'EL VALOR DE LA MATRICULA ES: ${int(precioMatricula)}')
+
+
+## SEGUNDO EJERCICIO RANGO NUMERO##
+
+rango = 0
+numMedio = 0
+cont = 3
+numIntentos = 3
+
+n1 = int(input("INGRESE EL PRIMER NUMERO ENTERO: "))
+n2 = int(input("INGRESE EL SEGUNDO NUMERO ENTERO: "))
+
+
+if n1 < n2:
+
+    numMedio = n1 + n2 / 2
+
+    rango = (n2 - n1)*0.2
+
+for numMedio in range(n1, n2+1):
+    print(numMedio)

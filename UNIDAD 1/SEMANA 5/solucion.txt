@@ -1,0 +1,155 @@
+// =========================
+// EJERCICIO 1: TEMPERATURA
+// =========================
+Proceso ControlDeTemperatura
+    Definir temperatura Como Real
+
+    Escribir "Ingrese la temperatura actual del refrigerador (°C):"
+    Leer temperatura
+
+    Mientras temperatura < 2 O temperatura > 6 Hacer
+        Si temperatura < 2 Entonces
+            Escribir "Hace demasiado frío. Ajuste la temperatura."
+        Sino
+            Escribir "Hace demasiado calor. Ajuste la temperatura."
+        FinSi
+        Escribir "Ingrese nuevamente la temperatura:"
+        Leer temperatura
+    FinMientras
+
+    Escribir "Temperatura adecuada."
+FinProceso
+
+// ===================================
+// EJERCICIO 2: ACCESO AL GIMNASIO
+// ===================================
+Proceso ControlGimnasio
+    Definir respuesta Como Caracter
+    Definir edad, totalPersonas, personasConAcceso Como Entero
+
+    totalPersonas <- 0
+    personasConAcceso <- 0
+
+    Escribir "¿Desea ingresar una persona? (S/N):"
+    Leer respuesta
+
+    Mientras Mayusculas(respuesta) = "S" Hacer
+        totalPersonas <- totalPersonas + 1
+
+        Escribir "Ingrese la edad de la persona:"
+        Leer edad
+
+        Si edad >= 18 Entonces
+            Escribir "Acceso permitido."
+            personasConAcceso <- personasConAcceso + 1
+        Sino
+            Escribir "Acceso denegado."
+        FinSi
+
+        Escribir "¿Desea ingresar otra persona? (S/N):"
+        Leer respuesta
+    FinMientras
+
+    Escribir "Total de personas registradas: ", totalPersonas
+    Escribir "Personas que pudieron ingresar: ", personasConAcceso
+FinProceso
+
+// ===================================
+// EJERCICIO 3: CAJERO AUTOMÁTICO
+// ===================================
+Proceso CajeroAutomatico_SinSegun
+    Definir pinIngresado, intentos, opcion Como Entero
+    Definir saldo, montoRetiro Como Real
+
+    saldo <- 100000
+    intentos <- 0
+
+    Repetir
+        Escribir "Ingrese su PIN:"
+        Leer pinIngresado
+        intentos <- intentos + 1
+
+        Si pinIngresado = 1234 Entonces
+            Escribir "Acceso concedido."
+        FinSi
+    Hasta Que pinIngresado = 1234 O intentos = 3
+
+    Si pinIngresado <> 1234 Entonces
+        Escribir "PIN incorrecto. Cuenta bloqueada."
+    Sino
+        Repetir
+            Escribir "MENÚ DEL CAJERO:"
+            Escribir "1. Consultar saldo"
+            Escribir "2. Retirar dinero"
+            Escribir "3. Salir"
+            Escribir "Elija una opción:"
+            Leer opcion
+
+            Si opcion = 1 Entonces
+                Escribir "Su saldo actual es: $", saldo
+            FinSi
+
+            Si opcion = 2 Entonces
+                Escribir "Ingrese el monto a retirar:"
+                Leer montoRetiro
+
+                Si montoRetiro > saldo Entonces
+                    Escribir "Saldo insuficiente."
+                Sino
+                    saldo <- saldo - montoRetiro
+                    Escribir "Retiro exitoso. Saldo restante: $", saldo
+                FinSi
+            FinSi
+
+            Si opcion = 3 Entonces
+                Escribir "Gracias por usar el cajero."
+            FinSi
+
+            Si opcion < 1 O opcion > 3 Entonces
+                Escribir "Opción no válida."
+            FinSi
+
+        Hasta Que opcion = 3
+    FinSi
+FinProceso
+
+// ========================================
+// EJERCICIO 4: ENCUESTA EN CAFETERÍA
+// ========================================
+Proceso EncuestaCafeteria
+    Definir edad, calificacion, sumaEdad, totalClientes Como Entero
+    Definir contadorExcelentes, contadorJovenesSatisfechos Como Entero
+    Definir promedioEdad Como Real
+
+    sumaEdad <- 0
+    contadorExcelentes <- 0
+    contadorJovenesSatisfechos <- 0
+    totalClientes <- 10
+
+    Para i <- 1 Hasta totalClientes Con Paso 1 Hacer
+        Escribir "Cliente ", i
+        Escribir "Ingrese su edad:"
+        Leer edad
+
+        Repetir
+            Escribir "Califique el servicio (1=Malo, 2=Regular, 3=Bueno, 4=Excelente):"
+            Leer calificacion
+        Hasta Que calificacion >= 1 Y calificacion <= 4
+
+        sumaEdad <- sumaEdad + edad
+
+        Si calificacion = 4 Entonces
+            contadorExcelentes <- contadorExcelentes + 1
+        FinSi
+
+        Si edad < 25 Y calificacion >= 3 Entonces
+            contadorJovenesSatisfechos <- contadorJovenesSatisfechos + 1
+        FinSi
+    FinPara
+
+    promedioEdad <- sumaEdad / totalClientes
+
+    Escribir "Promedio de edad: ", promedioEdad
+    Escribir "Clientes que calificaron como Excelente: ", contadorExcelentes
+    Escribir "Clientes < 25 años que calificaron 3 o más: ", contadorJovenesSatisfechos
+FinProceso

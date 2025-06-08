@@ -1,0 +1,116 @@
+Ejercicio 1 
+
+
+
+# Descuentos según promedio y decil para estudiantes de primer año de ingeniería
+
+matricula = 95000
+arancel = 2200000
+
+
+# Solicita los datos del estudiante (promedio y decil)
+print("Ingrese los datos del estudiante:")
+print("Arancel: $2.200.000")
+print("Matrícula: $95.000")
+promedio = float(input("¿Cual es el promedio del estudiante? (0-7.0): "))
+decil = int(input("Ingrese el decil del estudiante (1-10): "))
+
+# Descuentos del arancel
+if promedio > 6.5 and decil <= 2:
+    descuento_arancel = arancel * 0.25  # 25%
+elif promedio > 6.5 and decil <= 4:
+    descuento_arancel = arancel * 0.18 # 18%
+elif promedio > 5.5 and decil <= 2:
+    descuento_arancel = arancel * 0.15 # 15%
+elif promedio > 5.5 and decil <= 4:
+    descuento_arancel = arancel * 0.12 # 12%
+else:
+    descuento_arancel = 0 # No hay dscuento
+
+# Descuentos de matricula
+if decil <= 3 and promedio >= 6.0:
+    descuento_matricula = matricula * 0.17  # (Descuento adicional por promedioi sobresaliente 12% + 5% ) 
+elif decil <= 3:
+    descuento_matricula = matricula * 0.12 
+else:
+    descuento_matricula = 0
+
+
+arancel_final = arancel - descuento_arancel
+matricula_final = matricula - descuento_matricula
+total = arancel_final + matricula_final
+
+# Resultados
+
+print("Resultados:")
+print(f"Arancel: ${arancel:,.0f}")
+print(f"Descuento en arancel: ${descuento_arancel:,.0f}")
+print(f"Arancel a pagar: ${arancel_final:,.0f}")
+print(f"Matrícula: ${matricula:,.0f}")
+print(f"Descuento en matrícula: ${descuento_matricula:,.0f}")
+print(f"Matrícula a pagar: ${matricula_final:,.0f}")
+print(f"Total a pagar: ${total:,.0f}")
+
+
+
+# Anotaciones
+# (:,.0f) (para mostrar los números con separador de miles y sin decimales)
+
+
+
+
+
+
+
+Ejercicio 2 
+
+
+
+
+# Juego de adivinar el número
+
+num1 = int(input("Ingresa tu primer número: "))
+num2 = int(input("Ingresa tu ssegundo número: "))
+
+if num1 < num2:
+    punto_medio = (num1 + num2) / 2
+    ajuste = (num2 - num1) * 0.2
+    numero = round(punto_medio + ajuste)
+
+    intento1 = int(input("Comenieza tu primer intento, Ingresa el número: "))
+    if intento1 == numero:
+        print("Felicitaciones, pudiste adivinar!")
+    else:
+        if intento1 < numero:
+            print("Es mayor")
+        else:
+            print("Es menor")
+
+        intento2 = int(input("Continuemos con tu segundo intento, Ingresa el número: "))
+        if intento2 == numero:
+            print("Felicitaciones, pudiste adivinar!")
+        else:
+            if intento2 < numero:
+                print("Es mayor")
+            else:
+                print("Es menor")
+
+            if abs(numero - intento1) < abs(numero - intento2):
+                print("El primer intento estuvo mucho más cerca")
+            else:
+                print("El segundo intento estuvo mucho más cerca")
+
+            intento3 = int(input("Último intento: "))
+            if intento3 == numero:
+                print("Felicitaciones, pudiste adivinar!")
+            else:
+                print("Perdiste")
+                print("El número era:", numero)
+else:
+    print("El primer número debe ser menor")
+
+
+
+    # Anotaciones 
+    # El abs El valor absoluto es la distancia de un número al 0, sin importar si es positivo o negativo. (para comparar que intento estuvo mas cerca)
+    # El round() para redondear un número
